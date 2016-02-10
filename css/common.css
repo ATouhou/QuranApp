@@ -17,8 +17,8 @@
     font-size: 18pt;
     text-align: center;
     line-height: 40px;
-    background: url('../images/SurahPartition.png') no-repeat 70px;
-    padding-top: 10px;
+    background: url('../images/SurahPartition.png') no-repeat 46px;
+    padding-top: 5px;
 }
 
     .surah_name a {
@@ -52,27 +52,58 @@
     font-size: 42px;
 }
 
-.word {
+.word, .stop_mark {
     cursor: hand;
     cursor: pointer;
+    color: #222;
+    word-spacing: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
+}
+
+.highlightword {
+
 }
 
 .ayah_number {
     text-align: center;
     cursor: hand;
     cursor: pointer;
+    color:#040;
+}
+
+.feature_bar {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    z-index: 10000;
+    word-spacing: 8px;
+    margin-left: 120px;
+    font-family: Arial;
+}
+
+.feature_bar a {
+    color: #333;
+    font-weight: normal;
+    font-size: 25px;
+    text-decoration: none;
+    position: relative;
 }
 
 #searchsurah_link {
-    position: absolute;
-    left: 400px;
-    top: 8px;
-    z-index: 100;
-    color: black;
-    font-weight: normal;
-    font-size: 16pt;
-    text-decoration: none;
+    
 }
+
+#bookmarkPopup {
+    height: 400px;
+    width: 400px;
+}
+
+.searchsurah_link:hover {
+    color: red; /*background-color: #ccffcc; -moz-border-radius: 10px; -webkit-border-radius: 10px; */
+}
+
 .error {
     color: red;
     font-size: 16px;
@@ -83,9 +114,9 @@
     display: none;
 }
 .page {
-    width: 550px;
-    height: 822px;
-    background: url('../images/QuranBackground.png') no-repeat 0px 0px;
+    width: 514px;
+    height: 820px;
+    background: url('../images/Background.png') no-repeat 0px 0px;
     float: left;
     -webkit-user-select: none;
 }
@@ -95,78 +126,156 @@
 }
 
 body {
-    background-color: #f7f1e5;
+    background-color: #faefe5; /*#f7f1e5;*/
     margin: 0;
     padding: 0;
 }
 
-* {
-    -webkit-font-smoothing: antialiased !important;
-    -webkit-text-stroke: 0.2px;
+html {
+    -webkit-font-smoothing: antialiased;
+    /*-webkit-text-stroke: 0.2px;*/
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    
 }
 
 .word:hover {
     color: red; /*background-color: #ccffcc; -moz-border-radius: 10px; -webkit-border-radius: 10px; */
 }
 
+.ayah_number:hover {
+    color: red; /*background-color: #ccffcc; -moz-border-radius: 10px; -webkit-border-radius: 10px; */
+}
 
-.tooltipster-base .bangla_meaning {
-    text-align: center;
-    font-size: 14pt;
+
+.tooltipster-base .arabic_word {
+    color: lightgreen;
+    font-size: 140%;
+    margin-right: 0.5em;
+    direction: rtl;
+}
+
+.tooltipster-base .arabic_grammar {
+    color: lightgreen;
+    font-size: 140%;
+    margin-right: 0.5em;
+    direction: rtl;
+}
+
+.tooltipster-base .transliteration {
+    color: yellow;
+    font-family: Georgia;
+    font-style: italic;
+    margin-right: 0.5em;
+}
+
+.tooltipster-base .root {
+    color: #f99;
+    font-weight: bold;
+    font-size: 140%;
+    word-break: keep-all;
+    direction: rtl;
+}
+
+.tooltipster-base .bangla_meaning {    
+    font-size: 10pt;
     font-family: SolaimanLipiNormal, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Georgia, sans-serif !important;
-    font-weigth: bold;
+    font-weight: normal;
     line-height: 1.6em;
     color: yellow;
 }
 
+.tooltipster-base .indonesia_meaning {
+    font-size: 10pt;
+    font-weigth: bold;
+    line-height: 1.6em;
+    color: lightblue;
+}
+
+.tooltipster-base .meanings_container {
+    float: left;
+    width: 49%;
+    clear: right;
+    padding-right: 5px;
+}
+
 .tooltipster-base .english_meaning {
-    text-align: center;
-    font-size: 14pt;
+    font-size: 10pt;
     font-weigth: bold;
     line-height: 1.6em;
     color: lightgreen;
 }
 
-.tooltipster-base .lemma {
-    text-align: justify;
-    font-size: 14pt;
-    line-height: 1.6em;
+
+.tooltipster-base .meanings_container ul {
+	padding: 0;
+	margin: 0;	
 }
 
-    .tooltipster-base .lemma span {
+.tooltipster-base .meanings_container ul li {
+	text-align: left;
+}
+    .tooltipster-base .meanings_container span {
+        clear: both;
+        display: block;
+        text-align: left;
+    }
+
+.tooltipster-base .grammar_container {
+    float: left;
+    width: 49%;
+}
+
+.tooltipster-base .lemma_container {
+    clear: right;
+    float: right; 
+    width: 49%;
+}
+
+.tooltipster-base { max-width: 400px; }
+
+
+.tooltipster-base .lemma {
+    text-align: justify;
+    font-size: 10pt;
+    line-height: 1.6em;
+    clear: both;
+}
+
+    .tooltipster-base span.lemma_arabic {
         color: lightgreen;
-        font-size: 18pt;
+         font-size: 140%;
+    
     }
 
 .tooltipster-base .lemma_meaning {
     text-align: justify;
-    font-size: 14pt;
+    font-size: 10pt;
     line-height: 1.6em;
     font-family: SolaimanLipiNormal, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Georgia, sans-serif !important;
+    font-weight: normal;
 }
 
     .tooltipster-base .lemma_meaning span {
         color: yellow;
     }
 
-.tooltipster-base .meaning_details {
+/*.tooltipster-base .meaning_details {
     color: lightgrey;
     cursor: hand;
     cursor: pointer;
     text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     border: 1px solid dimgray;
     -moz-border-radius: 5px; 
     -webkit-border-radius: 5px;
     border-radius: 5px;
     padding: 5px;
-}
+}*/
 
 .surah_title {
     position: absolute;
-    left: 40px;
+    left: 15px;
     top: 5px;
     text-align: center;
     width: 130px;
@@ -184,6 +293,10 @@ body {
     font-weight: normal;
 }
 
+.surah_title a:hover {
+    color: red; /*background-color: #ccffcc; -moz-border-radius: 10px; -webkit-border-radius: 10px; */
+}
+
 .page_no a {
     text-decoration: none;
     color: black;
@@ -191,10 +304,10 @@ body {
 }
 
 .page_no {
-    font-family: 'Arabic typesetting';
+    font-family: /*'Arabic Typesetting',*/ Georgia, 'Times New Roman', Arial;
     direction: rtl;
     position: absolute;
-    left: 260px;
+    left: 240px;
     top: 792px;
     text-align: center;
     width: 30px;
@@ -205,25 +318,27 @@ body {
     clear: both;
     color: lightcyan;
     font-family: Georgia;
+    line-height: 1.5em;
 }
 
 #meaningPopup .bangla_meaning {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-family: SolaimanLipiNormal, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Georgia, sans-serif !important;
     font-size: 120%;
 }
 
-#meaningPopup .arabic_word {
-    font-size: 200%;
-    font-family: 'Arabic Typesetting';
+#meaningPopup .arabic_word, .arabic_grammar, .similar {
+    font-size: 140%;
+    font-family: /*'Arabic Typesetting',*/ Georgia, 'Times New Roman', Arial;
     direction: rtl;
 }
-#meaningPopup a {
+#meaningPopup a.arabic_word, #meaningPopup a.lemma {
     text-decoration: none;
     font-weight: normal;
     color: cyan;
-    border-bottom: 1px dotted cyan;
+    border-bottom: 1px cyan dotted;
 }
+
 #meaningPopup .frequency_wrap {
     margin-left: 5px; 
     font-size: 80%;
@@ -236,13 +351,18 @@ body {
     font-style: italic;
 }
 
+#meaningPopup .indonesia_meaning {
+    font-weight: bold;
+    font-style: italic;
+}
+
 #meaningPopup .lemma {
-    font-size: 200%;
-    font-family: 'Arabic Typesetting';
+    font-size: 140%;
+    font-family: /*'Arabic Typesetting',*/ Georgia, 'Times New Roman', Arial;
 }
 
 #meaningPopup .lemma_meaning {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-family: SolaimanLipiNormal, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Georgia, sans-serif !important;
     font-size: 120%;
 }
@@ -254,8 +374,8 @@ body {
 }
 
 #meaningPopup .root {
-    font-size: 200%;
-    font-family: 'Arabic Typesetting';
+    font-size: 140%;
+    font-family: /*'Arabic Typesetting',*/ Georgia, 'Times New Roman', Arial;
 }
 
 #meaningPopup .root_meanings {
@@ -280,13 +400,13 @@ body {
 #home>.ui-content { padding: 0; }
 
  .swiper-container {
-            height: 822px;
-            width: 550px;
+            height: 820px;
+            width: 514px;
         }
 
         .swiper-slide {
-            width: 550px;
-            height: 822px;
+            width: 514px;
+            height: 820px;
             /* Center slide text vertically */
             display: -webkit-box;
             display: -ms-flexbox;
@@ -311,3 +431,340 @@ body {
 .swiper-button-prev {
     background: url('../images/right_button.png') !important;
 }
+
+
+#listDiv {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    right: 0px;
+    bottom: 0px;
+    margin-top: 60px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+        #listDiv li span {
+            margin-left: 0.5em;
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;            
+            display:inline-block;
+        }
+
+#listDiv span.arabic {
+    font-size: 140%;
+	float: left;
+}
+
+
+.listviewfix {
+    margin: 0px !important;
+}
+        
+.ayah-snippet {
+    color: #666;
+    font-style: italic;
+    font-weight: normal;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;   
+    margin-left: 10px;
+}
+
+.bangla_subtitle {
+    clear: both;
+    font-size: 10px;
+    margin-left: 1em;
+}
+
+.bookmark-surahname {
+    
+}
+
+
+
+.bookmarked_ayah {
+    color: red;
+}
+
+#bookmark_ayah.bookmarked_ayah {
+    color: cyan;
+}
+
+
+#ayah_actions a {
+    color: ivory;
+    font-size: 30px;
+    text-decoration: none;
+    float: right;
+    margin-right: 10px;
+    line-height: 30px; 
+    position: relative;
+}
+
+
+.bookmarked_word {
+    color: red;
+}
+
+#bookmark_word.bookmarked_word {
+    color: cyan;
+}
+
+.tooltip_actions {
+    margin: 5px;    
+}
+
+.tooltip_actions a {
+    color: ivory;
+    font-size: 30px;
+    text-decoration: none;
+    float: right;
+    margin-right: 10px;
+    line-height: 30px; 
+    position: relative;
+}
+
+.ui-bar {
+    border-top: solid 1px lightgrey;
+    
+}
+
+.ui-listview, .ui-listview > li, .ui-listview > li > a {
+    font-size: 12px;
+}
+
+table {
+    
+}
+
+#VerbForms table, #VerbForms th, #VerbForms td {
+    border: 1px solid #555;
+    color: cyan;
+    font-weight: normal;
+    padding: 5px;
+}
+
+#VerbForms td {
+    font-size: 150%;
+}
+#VerbForms {
+    font-size: 120%;
+    border-collapse: collapse;
+}
+
+#translationContent {
+    overflow: auto;
+    /*background-color:rgba(0,0,0,0.8);*/
+    background-color: #faefe5;
+    padding: 5px 15px 15px 45px; 
+    color: black;
+}
+
+#translationPopup { width: 500px; color: white; }
+
+#translationContent .surah {
+    line-height: 40px;
+    background: url('../images/SurahPartition.png') no-repeat;
+    text-align: left;
+    color: black;
+    font-family: SolaimanLipiNormal, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Georgia, sans-serif;
+    font-size: 15px;
+    padding-left: 140px;
+}
+
+p.verse, p.bismillah {
+    position: relative;
+    font-family: SolaimanLipiNormal, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Georgia, sans-serif;
+    line-height: 1.5em;
+    font-size: 16px;
+    margin: 0;
+}
+
+p.verse.highlighted {
+    background-color: lightgreen;
+}
+
+#hand {
+    width: 158px;
+    height: 273px;
+    background: url(../images/Finger.png);
+    position: absolute;
+    left: 0px;
+    top: 0px;    
+    display: none;
+    z-index: 65535;
+}
+
+#word_tooltip_template, #meaning_popup_template {
+    display:none;
+    position:absolute;
+}
+
+
+#translationPopup {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding: 0px;
+	width: 99%;
+    border: lightgrey 4px solid;
+	background-color: #f7f1e5;
+    z-index: 65000;
+    display: none;
+}
+
+#progressbarPopup {
+    width: 200px;
+}
+
+
+/* 
+    CSS progress bar
+    Credit to: https://css-tricks.com/examples/ProgressBars/
+*/
+
+.meter {
+			height: 16px;  /* Can be anything */
+			position: relative;
+			margin: 10px; /* Just for demo spacing */
+			background: #555;
+			-moz-border-radius: 25px;
+			-webkit-border-radius: 25px;
+			border-radius: 25px;
+			padding: 10px;
+			-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+			-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+			box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+		}
+		.meter > span {
+			display: block;
+			height: 100%;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			background-color: rgb(43,194,83);
+			background-image: -webkit-gradient(
+			  linear,
+			  left bottom,
+			  left top,
+			  color-stop(0, rgb(43,194,83)),
+			  color-stop(1, rgb(84,240,84))
+			 );
+			background-image: -moz-linear-gradient(
+			  center bottom,
+			  rgb(43,194,83) 37%,
+			  rgb(84,240,84) 69%
+			 );
+			-webkit-box-shadow:
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow:
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			box-shadow:
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			position: relative;
+			overflow: hidden;
+		}
+		.meter > span:after, .animate > span > span {
+			content: "";
+			position: absolute;
+			top: 0; left: 0; bottom: 0; right: 0;
+			background-image:
+			   -webkit-gradient(linear, 0 0, 100% 100%,
+			      color-stop(.25, rgba(255, 255, 255, .2)),
+			      color-stop(.25, transparent), color-stop(.5, transparent),
+			      color-stop(.5, rgba(255, 255, 255, .2)),
+			      color-stop(.75, rgba(255, 255, 255, .2)),
+			      color-stop(.75, transparent), to(transparent)
+			   );
+			background-image:
+				-moz-linear-gradient(
+				  -45deg,
+			      rgba(255, 255, 255, .2) 25%,
+			      transparent 25%,
+			      transparent 50%,
+			      rgba(255, 255, 255, .2) 50%,
+			      rgba(255, 255, 255, .2) 75%,
+			      transparent 75%,
+			      transparent
+			   );
+			z-index: 1;
+			-webkit-background-size: 50px 50px;
+			-moz-background-size: 50px 50px;
+			background-size: 50px 50px;
+			-webkit-animation: move 2s linear infinite;
+			-moz-animation: move 2s linear infinite;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			overflow: hidden;
+		}
+
+		.animate > span:after {
+			display: none;
+		}
+
+		@-webkit-keyframes move {
+		    0% {
+		       background-position: 0 0;
+		    }
+		    100% {
+		       background-position: 50px 50px;
+		    }
+		}
+
+		@-moz-keyframes move {
+		    0% {
+		       background-position: 0 0;
+		    }
+		    100% {
+		       background-position: 50px 50px;
+		    }
+		}
+
+
+		.orange > span {
+			background-color: #f1a165;
+			background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+			background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+			background-image: -webkit-linear-gradient(#f1a165, #f36d0a);
+		}
+
+		.red > span {
+			background-color: #f0a3a3;
+			background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
+			background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
+			background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
+		}
+
+		.nostripes > span > span, .nostripes > span:after {
+			-webkit-animation: none;
+			-moz-animation: none;
+			background-image: none;
+		}
+        
+        
+  
